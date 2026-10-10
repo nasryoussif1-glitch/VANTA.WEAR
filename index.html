@@ -1,0 +1,1594 @@
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VANTA WEAR | Fashion Store</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #090909;
+    --card: #141414;
+    --card2: #1d1d1d;
+    --text: #ffffff;
+    --muted: #a1a1a1;
+    --gold: #d6b46a;
+    --border: #292929;
+    --header: rgba(9,9,9,.94);
+}
+
+body.light {
+    --bg: #f6f4ef;
+    --card: #ffffff;
+    --card2: #eeece6;
+    --text: #171717;
+    --muted: #666666;
+    --gold: #9c762a;
+    --border: #dedbd3;
+    --header: rgba(246,244,239,.95);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: background .3s, color .3s;
+}
+
+button, input {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: min(1200px, 92%);
+    margin: auto;
+}
+
+/* NAVBAR */
+
+header {
+    background: var(--header);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    min-height: 78px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 14px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-btn {
+    background: var(--card2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+.cart-btn {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    left: -4px;
+    background: var(--gold);
+    color: #111;
+    font-size: 11px;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+}
+
+.menu-btn {
+    display: none;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 570px;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    align-items: center;
+    gap: 40px;
+    padding: 65px 0;
+}
+
+.hero-content .tag {
+    color: var(--gold);
+    letter-spacing: 3px;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 5vw, 72px);
+    line-height: 1.35;
+    font-weight: 900;
+    margin: 18px 0;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 2.1;
+    max-width: 470px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 13px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 13px 25px;
+    border-radius: 5px;
+    border: 1px solid var(--gold);
+    font-weight: 800;
+    transition: .3s;
+}
+
+.btn-primary {
+    background: var(--gold);
+    color: #111;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px #d6b46a30;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--text);
+}
+
+.btn-outline:hover {
+    background: var(--card2);
+}
+
+.hero-image {
+    height: 440px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--card);
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(.82);
+    transition: transform .7s;
+}
+
+.hero-image:hover img {
+    transform: scale(1.05);
+}
+
+.hero-label {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    background: #090909b8;
+    backdrop-filter: blur(10px);
+    padding: 17px;
+    border: 1px solid #ffffff25;
+}
+
+.hero-label h3 {
+    color: #fff;
+    font-size: 21px;
+}
+
+.hero-label p {
+    color: #ddd;
+    font-size: 12px;
+}
+
+/* BENEFITS */
+
+.benefits {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 25px 0;
+    gap: 20px;
+}
+
+.benefit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.benefit-icon {
+    font-size: 27px;
+}
+
+.benefit h3 {
+    font-size: 14px;
+}
+
+.benefit p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* SECTIONS */
+
+section.products-section,
+.categories-section {
+    padding: 85px 0;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-heading .eyebrow {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 800;
+}
+
+.section-heading h2 {
+    font-size: clamp(27px, 4vw, 38px);
+    margin: 10px 0;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* CATEGORIES */
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.category-card {
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 7px;
+    background: var(--card);
+}
+
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .6s;
+    filter: brightness(.72);
+}
+
+.category-card:hover img {
+    transform: scale(1.07);
+    filter: brightness(.5);
+}
+
+.category-info {
+    position: absolute;
+    bottom: 28px;
+    right: 28px;
+}
+
+.category-info h3 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.category-info p {
+    color: #eee;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* FILTERS */
+
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: .25s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--gold);
+    color: #111;
+    border-color: var(--gold);
+}
+
+/* SEARCH */
+
+.search-box {
+    max-width: 420px;
+    margin: 0 auto 25px;
+    display: flex;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.search-box input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 13px 16px;
+    color: var(--text);
+    font-size: 14px;
+}
+
+.search-box button {
+    background: var(--gold);
+    border: none;
+    padding: 0 18px;
+    font-weight: 800;
+}
+
+/* PRODUCT CARDS */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.product-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    overflow: hidden;
+    transition: .3s;
+    animation: appear .5s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+}
+
+.product-image {
+    height: 270px;
+    position: relative;
+    overflow: hidden;
+    background: var(--card2);
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.06);
+}
+
+.product-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--gold);
+    color: #111;
+    padding: 4px 10px;
+    font-size: 10px;
+    font-weight: 900;
+    border-radius: 3px;
+}
+
+.wishlist {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border: none;
+    background: #111c;
+    color: white;
+    font-size: 20px;
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+}
+
+.wishlist.active {
+    color: #ff5c77;
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.product-category {
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.product-info h3 {
+    font-size: 15px;
+    margin: 7px 0;
+}
+
+.product-rating {
+    font-size: 12px;
+    color: #e8bd59;
+}
+
+.product-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 13px;
+    gap: 8px;
+}
+
+.price {
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.add-btn {
+    background: var(--gold);
+    color: #111;
+    border: none;
+    padding: 9px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.add-btn:hover {
+    filter: brightness(1.12);
+}
+
+.empty-message {
+    text-align: center;
+    color: var(--muted);
+    grid-column: 1/-1;
+    padding: 35px;
+}
+
+/* PROMO */
+
+.promo {
+    padding: 60px 30px;
+    text-align: center;
+    background:
+      linear-gradient(#080808d9,#080808d9),
+      url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=85') center/cover;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.promo h2 {
+    font-size: clamp(28px,4vw,44px);
+    color: white;
+}
+
+.promo p {
+    color: #ddd;
+    margin: 12px 0 25px;
+}
+
+/* NEWSLETTER */
+
+.newsletter {
+    text-align: center;
+    padding: 70px 0;
+}
+
+.newsletter p {
+    color: var(--muted);
+    margin: 10px 0 22px;
+}
+
+.newsletter-form {
+    display: flex;
+    max-width: 470px;
+    margin: auto;
+    gap: 8px;
+}
+
+.newsletter-form input {
+    min-width: 0;
+    flex: 1;
+    padding: 13px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 5px;
+    outline: none;
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 35px;
+}
+
+.footer-about p {
+    color: var(--muted);
+    line-height: 2;
+    font-size: 13px;
+    max-width: 380px;
+    margin-top: 12px;
+}
+
+footer h3 {
+    margin-bottom: 13px;
+    font-size: 15px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+}
+
+.copyright {
+    border-top: 1px solid var(--border);
+    padding-top: 18px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* CART DRAWER */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: #0009;
+    z-index: 200;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cart-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: min(420px, 92vw);
+    height: 100%;
+    background: var(--bg);
+    border-right: 1px solid var(--border);
+    z-index: 201;
+    transform: translateX(-105%);
+    transition: .35s;
+    display: flex;
+    flex-direction: column;
+    padding: 22px;
+}
+
+.cart-drawer.open {
+    transform: translateX(0);
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.close-cart {
+    background: var(--card2);
+    color: var(--text);
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+}
+
+.cart-items {
+    overflow-y: auto;
+    flex: 1;
+    padding: 15px 0;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.cart-item img {
+    width: 65px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-info h4 {
+    font-size: 13px;
+}
+
+.cart-item-info p {
+    color: var(--gold);
+    font-weight: 800;
+    font-size: 13px;
+    margin: 5px 0;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-controls button {
+    width: 25px;
+    height: 25px;
+    background: var(--card2);
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+
+.remove-item {
+    color: #ff6b6b;
+    border: none;
+    background: transparent;
+    font-size: 12px;
+}
+
+.cart-footer {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+}
+
+.total-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-weight: 900;
+}
+
+.checkout-btn {
+    width: 100%;
+    border: none;
+    padding: 14px;
+    background: var(--gold);
+    color: #111;
+    font-weight: 900;
+    border-radius: 5px;
+}
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    right: 50%;
+    transform: translate(50%, 100px);
+    background: var(--gold);
+    color: #111;
+    padding: 12px 22px;
+    border-radius: 5px;
+    font-weight: 800;
+    z-index: 500;
+    transition: .35s;
+    text-align: center;
+}
+
+.toast.show {
+    transform: translate(50%, 0);
+}
+
+@keyframes appear {
+    from {opacity: 0; transform: translateY(12px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 950px) {
+    .product-grid {
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    .hero {
+        gap: 25px;
+    }
+
+    .hero-image {
+        height: 380px;
+    }
+
+    .nav-links {
+        gap: 13px;
+    }
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        min-height: 68px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .menu-btn {
+        display: inline-block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 68px;
+        right: 0;
+        width: 100%;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        padding: 20px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 45px 0;
+    }
+
+    .hero-image {
+        height: 350px;
+    }
+
+    .benefits {
+        grid-template-columns: 1fr;
+        padding: 20px 0;
+    }
+
+    .benefit {
+        justify-content: flex-start;
+        padding-right: 15px;
+    }
+
+    section.products-section,
+    .categories-section {
+        padding: 55px 0;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-card {
+        height: 300px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+        gap: 12px;
+    }
+
+    .product-image {
+        height: 220px;
+    }
+
+    .product-info {
+        padding: 10px;
+    }
+
+    .product-info h3 {
+        font-size: 13px;
+    }
+
+    .price {
+        font-size: 14px;
+    }
+
+    .add-btn {
+        padding: 8px;
+        font-size: 10px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-about {
+        grid-column: 1/-1;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 360px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 300px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container navbar">
+
+        <a href="#" class="logo">VANTA<span>.</span>WEAR</a>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#home">الرئيسية</a>
+            <a href="#categories">الأقسام</a>
+            <a href="#products">المنتجات</a>
+            <a href="#offers">العروض</a>
+            <a href="#contact">تواصل معنا</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button class="icon-btn" id="themeToggle" title="تغيير المظهر">☀</button>
+            <button class="icon-btn cart-btn" id="openCart" title="سلة المشتريات">
+                🛒
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+            <button class="icon-btn menu-btn" id="menuBtn" title="القائمة">☰</button>
+        </div>
+
+    </div>
+</header>
+
+<main>
+
+<section class="container hero" id="home">
+
+    <div class="hero-content">
+        <div class="tag">NEW SEASON · 2026</div>
+
+        <h1>
+            أسلوبك.<br>
+            <span>قواعدك.</span><br>
+            اختيارك.
+        </h1>
+
+        <p>
+            اكتشف عالمًا من الأناقة يجمع بين الموضة الرجالي والحريمي.
+            قطع مميزة، تصاميم عصرية، وتفاصيل تصنع الفرق.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#products" class="btn btn-primary">اكتشف المجموعة ↙</a>
+            <a href="#categories" class="btn btn-outline">تصفح الأقسام</a>
+        </div>
+    </div>
+
+    <div class="hero-image">
+        <img
+            src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=85"
+            alt="متجر أزياء عصري"
+        >
+        <div class="hero-label">
+            <h3>BE YOUR OWN ICON.</h3>
+            <p>أناقة مختلفة لكل يوم.</p>
+        </div>
+    </div>
+
+</section>
+
+<div class="container benefits">
+
+    <div class="benefit">
+        <span class="benefit-icon">🚚</span>
+        <div>
+            <h3>شحن سريع</h3>
+            <p>توصيل إلى باب منزلك</p>
+        </div>
+    </div>
+
+    <div class="benefit">
+        <span class="benefit-icon">💎</span>
+        <div>
+            <h3>جودة مميزة</h3>
+            <p>اختيارات تناسب ذوقك</p>
+        </div>
+    </div>
+
+    <div class="benefit">
+        <span class="benefit-icon">🔒</span>
+        <div>
+            <h3>تجربة تسوق سهلة</h3>
+            <p>كل اختياراتك في مكان واحد</p>
+        </div>
+    </div>
+
+</div>
+
+<section class="categories-section container" id="categories">
+
+    <div class="section-heading">
+        <span class="eyebrow">FIND YOUR STYLE</span>
+        <h2>اكتشف عالمك</h2>
+        <p>ستايلات مختلفة، وشخصية واحدة مميزة.</p>
+    </div>
+
+    <div class="category-grid">
+
+        <a href="#products" class="category-card" data-category="men">
+            <img
+                src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=1000&q=85"
+                alt="ملابس رجالي"
+            >
+            <div class="category-info">
+                <h3>MEN'S COLLECTION</h3>
+                <p>اكتشف أحدث صيحات الموضة الرجالي</p>
+                <span class="btn btn-primary">تسوق رجالي ←</span>
+            </div>
+        </a>
+
+        <a href="#products" class="category-card" data-category="women">
+            <img
+                src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1000&q=85"
+                alt="ملابس حريمي"
+            >
+            <div class="category-info">
+                <h3>WOMEN'S COLLECTION</h3>
+                <p>أناقة عصرية تناسب كل مناسبة</p>
+                <span class="btn btn-primary">تسوق حريمي ←</span>
+            </div>
+        </a>
+
+    </div>
+
+</section>
+
+<section class="products-section" id="products">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">OUR COLLECTION</span>
+            <h2>اختياراتنا ليك</h2>
+            <p>اختار القطعة اللي تعبر عن شخصيتك.</p>
+        </div>
+
+        <div class="search-box">
+            <input id="searchInput" type="search" placeholder="ابحث عن تيشيرت، جاكيت، بنطلون...">
+            <button id="searchBtn">بحث</button>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">الكل</button>
+            <button class="filter-btn" data-filter="men">رجالي</button>
+            <button class="filter-btn" data-filter="women">حريمي</button>
+            <button class="filter-btn" data-filter="new">وصل حديثًا</button>
+            <button class="filter-btn" data-filter="favorites">المفضلة ♥</button>
+        </div>
+
+        <div class="product-grid" id="productGrid"></div>
+
+    </div>
+
+</section>
+
+<section class="promo" id="offers">
+    <div class="container">
+        <h2>YOUR STYLE. YOUR STORY.</h2>
+        <p>اكتشف مجموعتنا الجديدة وصمم إطلالتك بطريقتك.</p>
+        <a href="#products" class="btn btn-primary">تسوق مجموعتنا الآن</a>
+    </div>
+</section>
+
+<section class="newsletter container">
+
+    <div class="section-heading">
+        <span class="eyebrow">STAY IN STYLE</span>
+        <h2>خليك أول واحد يعرف</h2>
+        <p>سجل بريدك الإلكتروني لمتابعة أحدث المنتجات والعروض.</p>
+    </div>
+
+    <form class="newsletter-form" id="newsletterForm">
+        <input type="email" id="emailInput" placeholder="اكتب بريدك الإلكتروني" required>
+        <button class="btn btn-primary" type="submit">اشترك الآن</button>
+    </form>
+
+</section>
+
+</main>
+
+<footer id="contact">
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-about">
+                <a href="#" class="logo">VANTA<span>.</span>WEAR</a>
+                <p>
+                    وجهتك للأزياء الرجالي والحريمي.
+                    اكتشف أسلوبك الخاص مع تشكيلة متنوعة من الملابس العصرية.
+                </p>
+            </div>
+
+            <div>
+                <h3>روابط سريعة</h3>
+                <div class="footer-links">
+                    <a href="#home">الرئيسية</a>
+                    <a href="#categories">الأقسام</a>
+                    <a href="#products">المنتجات</a>
+                    <a href="#offers">العروض</a>
+                </div>
+            </div>
+
+            <div>
+                <h3>خدمة العملاء</h3>
+                <div class="footer-links">
+                    <a href="#contact">تواصل معنا</a>
+                    <a href="#contact">سياسة الاستبدال</a>
+                    <a href="#contact">سياسة الخصوصية</a>
+                    <a href="#contact">الأسئلة الشائعة</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © <span id="year"></span> VANTA WEAR — جميع الحقوق محفوظة.
+        </div>
+
+    </div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+
+<aside class="cart-drawer" id="cartDrawer">
+
+    <div class="cart-header">
+        <h2>🛒 سلة مشترياتك</h2>
+        <button class="close-cart" id="closeCart">×</button>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-footer">
+        <div class="total-line">
+            <span>الإجمالي</span>
+            <span id="cartTotal">0 جنيه</span>
+        </div>
+        <button class="checkout-btn" id="checkoutBtn">إتمام الطلب</button>
+    </div>
+
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const products = [
+    {
+        id: 1,
+        name: "تيشيرت أسود أساسي",
+        category: "men",
+        type: "تيشيرت",
+        price: 450,
+        badge: "الأكثر مبيعًا",
+        isNew: false,
+        rating: 4.9,
+        image: "photo-1521572163474-6864f9cf17ab"
+    },
+    {
+        id: 2,
+        name: "جاكيت جينز عصري",
+        category: "men",
+        type: "جاكيت",
+        price: 1250,
+        badge: "جديد",
+        isNew: true,
+        rating: 4.8,
+        image: "photo-1551028719-00167b16eac5"
+    },
+    {
+        id: 3,
+        name: "فستان أسود أنيق",
+        category: "women",
+        type: "فستان",
+        price: 950,
+        badge: "اختيار مميز",
+        isNew: false,
+        rating: 4.9,
+        image: "photo-1539008835657-9e8e9680c956"
+    },
+    {
+        id: 4,
+        name: "حقيبة يد كلاسيكية",
+        category: "women",
+        type: "إكسسوارات",
+        price: 780,
+        badge: "جديد",
+        isNew: true,
+        rating: 4.7,
+        image: "photo-1584917865442-de89df76afd3"
+    },
+    {
+        id: 5,
+        name: "قميص رجالي كلاسيك",
+        category: "men",
+        type: "قميص",
+        price: 690,
+        badge: "",
+        isNew: false,
+        rating: 4.6,
+        image: "photo-1603252109303-2751441dd157"
+    },
+    {
+        id: 6,
+        name: "إطلالة حريمي كاجوال",
+        category: "women",
+        type: "كاجوال",
+        price: 1100,
+        badge: "جديد",
+        isNew: true,
+        rating: 4.8,
+        image: "photo-1483985988355-763728e1935b"
+    },
+    {
+        id: 7,
+        name: "سويت شيرت مميز",
+        category: "men",
+        type: "سويت شيرت",
+        price: 850,
+        badge: "",
+        isNew: false,
+        rating: 4.7,
+        image: "photo-1556821840-3a63f95609a7"
+    },
+    {
+        id: 8,
+        name: "بلوزة حريمي عصرية",
+        category: "women",
+        type: "بلوزة",
+        price: 590,
+        badge: "جديد",
+        isNew: true,
+        rating: 4.9,
+        image: "photo-1551163943-3f6a855d1153"
+    }
+].map(product => ({
+    ...product,
+    imageUrl: `https://images.unsplash.com/${product.image}?auto=format&fit=crop&w=700&q=80`
+}));
+
+let currentFilter = "all";
+let searchTerm = "";
+let favorites = JSON.parse(localStorage.getItem("vantaFavorites") || "[]");
+let cart = JSON.parse(localStorage.getItem("vantaCart") || "[]");
+
+const productGrid = document.getElementById("productGrid");
+const cartDrawer = document.getElementById("cartDrawer");
+const overlay = document.getElementById("overlay");
+const toast = document.getElementById("toast");
+
+function formatPrice(price) {
+    return price.toLocaleString("en-US") + " جنيه";
+}
+
+function renderProducts() {
+    let filtered = products.filter(product => {
+        const matchesSearch =
+            product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            product.type.toLowerCase().includes(searchTerm.toLowerCase());
+
+        let matchesFilter = true;
+
+        if (currentFilter === "men" || currentFilter === "women") {
+            matchesFilter = product.category === currentFilter;
+        } else if (currentFilter === "new") {
+            matchesFilter = product.isNew;
+        } else if (currentFilter === "favorites") {
+            matchesFilter = favorites.includes(product.id);
+        }
+
+        return matchesSearch && matchesFilter;
+    });
+
+    if (filtered.length === 0) {
+        productGrid.innerHTML =
+            '<div class="empty-message">مفيش منتجات مطابقة للبحث حاليًا.</div>';
+        return;
+    }
+
+    productGrid.innerHTML = filtered.map(product => `
+        <article class="product-card">
+            <div class="product-image">
+                <img src="${product.imageUrl}"
+                     alt="${product.name}"
+                     loading="lazy"
+                     onerror="this.src='https://placehold.co/600x700/191919/d6b46a?text=VANTA+WEAR'">
+
+                ${product.badge
+                    ? `<span class="product-badge">${product.badge}</span>`
+                    : ""}
+
+                <button
+                    class="wishlist ${favorites.includes(product.id) ? "active" : ""}"
+                    onclick="toggleFavorite(${product.id})"
+                    aria-label="إضافة للمفضلة">
+                    ${favorites.includes(product.id) ? "♥" : "♡"}
+                </button>
+            </div>
+
+            <div class="product-info">
+                <span class="product-category">
+                    ${product.category === "men" ? "MEN'S WEAR" : "WOMEN'S WEAR"}
+                </span>
+
+                <h3>${product.name}</h3>
+
+                <div class="product-rating">★ ${product.rating} / 5</div>
+
+                <div class="product-bottom">
+                    <span class="price">${formatPrice(product.price)}</span>
+                    <button class="add-btn" onclick="addToCart(${product.id})">
+                        + أضف للسلة
+                    </button>
+                </div>
+            </div>
+        </article>
+    `).join("");
+}
+
+function saveCart() {
+    localStorage.setItem("vantaCart", JSON.stringify(cart));
+}
+
+function addToCart(id) {
+    const product = products.find(item => item.id === id);
+    const existing = cart.find(item => item.id === id);
+
+    if (existing) {
+        existing.quantity++;
+    } else {
+        cart.push({
+            id: product.id,
+            quantity: 1
+        });
+    }
+
+    saveCart();
+    renderCart();
+    showToast("تمت إضافة المنتج إلى سلتك 🛍️");
+}
+
+function changeQuantity(id, amount) {
+    const item = cart.find(item => item.id === id);
+
+    if (!item) return;
+
+    item.quantity += amount;
+
+    if (item.quantity <= 0) {
+        cart = cart.filter(item => item.id !== id);
+    }
+
+    saveCart();
+    renderCart();
+}
+
+function removeFromCart(id) {
+    cart = cart.filter(item => item.id !== id);
+    saveCart();
+    renderCart();
+    showToast("تم حذف المنتج من السلة");
+}
+
+function renderCart() {
+    const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+    document.getElementById("cartCount").textContent = count;
+
+    const cartItems = document.getElementById("cartItems");
+
+    if (cart.length === 0) {
+        cartItems.innerHTML =
+            '<div class="empty-message">سلتك لسه فاضية 🛍️<br>ابدأ التسوق واختار اللي يعجبك.</div>';
+    } else {
+        cartItems.innerHTML = cart.map(item => {
+            const product = products.find(p => p.id === item.id);
+
+            if (!product) return "";
+
+            return `
+                <div class="cart-item">
+                    <img src="${product.imageUrl}" alt="${product.name}">
+
+                    <div class="cart-item-info">
+                        <h4>${product.name}</h4>
+                        <p>${formatPrice(product.price * item.quantity)}</p>
+
+                        <div class="quantity-controls">
+                            <button onclick="changeQuantity(${item.id}, -1)">−</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="changeQuantity(${item.id}, 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button class="remove-item"
+                            onclick="removeFromCart(${item.id})">
+                        حذف
+                    </button>
+                </div>
+            `;
+        }).join("");
+    }
+
+    const total = cart.reduce((sum, item) => {
+        const product = products.find(p => p.id === item.id);
+        return sum + (product ? product.price * item.quantity : 0);
+    }, 0);
+
+    document.getElementById("cartTotal").textContent = formatPrice(total);
+}
+
+function toggleFavorite(id) {
+    if (favorites.includes(id)) {
+        favorites = favorites.filter(item => item !== id);
+        showToast("تم الحذف من المفضلة");
+    } else {
+        favorites.push(id);
+        showToast("تمت الإضافة للمفضلة ❤️");
+    }
+
+    localStorage.setItem("vantaFavorites", JSON.stringify(favorites));
+    renderProducts();
+}
+
+function showToast(message) {
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    clearTimeout(showToast.timer);
+
+    showToast.timer = setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2300);
+}
+
+function openCart() {
+    cartDrawer.classList.add("open");
+    overlay.classList.add("show");
+}
+
+function closeCart() {
+    cartDrawer.classList.remove("open");
+    overlay.classList.remove("show");
+}
+
+document.getElementById("openCart").addEventListener("click", openCart);
+document.getElementById("closeCart").addEventListener("click", closeCart);
+overlay.addEventListener("click", closeCart);
+
+document.querySelectorAll(".filter-btn").forEach(button => {
+    button.addEventListener("click", () => {
+        document.querySelectorAll(".filter-btn").forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+        currentFilter = button.dataset.filter;
+        renderProducts();
+    });
+});
+
+document.getElementById("searchInput").addEventListener("input", event => {
+    searchTerm = event.target.value.trim();
+    renderProducts();
+});
+
+document.getElementById("searchBtn").addEventListener("click", () => {
+    searchTerm = document.getElementById("searchInput").value.trim();
+    renderProducts();
+});
+
+document.querySelectorAll(".category-card").forEach(card => {
+    card.addEventListener("click", () => {
+        currentFilter = card.dataset.category;
+
+        document.querySelectorAll(".filter-btn").forEach(button => {
+            button.classList.toggle(
+                "active",
+                button.dataset.filter === currentFilter
+            );
+        });
+
+        renderProducts();
+    });
+});
+
+/* DARK / LIGHT MODE */
+
+const themeToggle = document.getElementById("themeToggle");
+
+if (localStorage.getItem("vantaTheme") === "light") {
+    document.body.classList.add("light");
+    themeToggle.textContent = "☾";
+}
+
+themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("light");
+
+    const isLight = document.body.classList.contains("light");
+
+    localStorage.setItem("vantaTheme", isLight ? "light" : "dark");
+    themeToggle.textContent = isLight ? "☾" : "☀";
+
+    showToast(isLight ? "تم تفعيل الوضع الفاتح" : "تم تفعيل الوضع الداكن 🌙");
+});
+
+/* MOBILE MENU */
+
+document.getElementById("menuBtn").addEventListener("click", () => {
+    document.getElementById("navLinks").classList.toggle("show");
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.getElementById("navLinks").classList.remove("show");
+    });
+});
+
+/* NEWSLETTER DEMO */
+
+document.getElementById("newsletterForm").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const email = document.getElementById("emailInput").value.trim();
+
+    if (email) {
+        showToast("تم استلام بريدك في هذا النموذج التجريبي ✅");
+        event.target.reset();
+    }
+});
+
+/* CHECKOUT DEMO */
+
+document.getElementById("checkoutBtn").addEventListener("click", () => {
+    if (cart.length === 0) {
+        showToast("سلة المشتريات فارغة!");
+        return;
+    }
+
+    showToast("السلة جاهزة! يلزم ربط الموقع بنظام طلبات لإتمام الشراء.");
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+renderProducts();
+renderCart();
+</script>
+
+</body>
+</html>
+```
